@@ -38,8 +38,6 @@ const movieSlice = createSlice({
             });
 
             state.movies = updatedList;
-            state.movies = updatedList;
-            state.movies = updatedList;
         }
     },
 });

@@ -1,15 +1,14 @@
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-import Search from "../../widgets/Search";
-import Categories from "./Categories";
-import { useSelector } from "react-redux";
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import Categories from "./Categories";
+import Search from "../../widgets/Search";
 import Loader from '../../widgets/Loader';
 
-export default function MovieList() {
+const MovieList = () => {
   const navigate = useNavigate();
   const { movies, sortBy, searchText, isRequesting } = useSelector(state => state.movie);
-
   if (!movies) return [];
 
   const movieList = useMemo(() => {
@@ -18,7 +17,8 @@ export default function MovieList() {
       [...movies].sort((a, b) => b.released - a.released);
 
     if (searchText && searchText.trim().length > 0) {
-      sortedMovies = sortedMovies.filter(movie => movie.title.toLowerCase().includes(searchText.toLowerCase()));
+      sortedMovies = sortedMovies
+        .filter(movie => movie.title.toLowerCase().includes(searchText.toLowerCase()));
     }
 
     return sortedMovies;
@@ -26,7 +26,7 @@ export default function MovieList() {
 
   const favorites = useMemo(() => [...movies].filter((movie) => movie.favorite), [movies]);
 
-  const handleImageError = (e) => {
+  const handleImageError = e => {
     e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg';
   };
 
@@ -108,4 +108,6 @@ export default function MovieList() {
       {isRequesting ? <Loader /> : null}
     </div>
   );
-}
+};
+
+export default MovieList;

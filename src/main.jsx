@@ -7,10 +7,11 @@ import {
 } from "react-router-dom";
 import "./index.css";
 
-import App from "./components/App.jsx";
 import store from "./store";
-import Layout from "./components/container/Layout.jsx";
 import Moive from "./components/Moive";
+import App from "./components/App";
+import Favorites from "./components/favorites";
+import Layout from "./components/container/Layout";
 import PageNotFound from './components/boundaries/PageNotFound';
 
 const router = createBrowserRouter([
@@ -20,7 +21,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <React.Suspense fallback={<>Loading</>}> <App /> </React.Suspense>,
+        element: <App />,
+      },
+      {
+        path: "/favorites",
+        element: <Favorites />,
       },
       {
         path: "/movie/:movieId",

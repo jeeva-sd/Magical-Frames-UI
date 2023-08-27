@@ -1,14 +1,14 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Transition } from '@headlessui/react';
-import spidy from '../assets/images/spidy.jpg';
-import avengers from '../assets/images/avengers.jpg';
 import loki from '../assets/images/loki.jpg';
 import nemo from '../assets/images/nemo.jpg';
 import john from '../assets/images/john.jpg';
+import spidy from '../assets/images/spidy.jpg';
+import avengers from '../assets/images/avengers.jpg';
 
 const images = [spidy, loki, avengers, nemo, john];
 
-export default function Example() {
+const Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showImage, setShowImage] = useState(true);
 
@@ -21,7 +21,7 @@ export default function Example() {
                 );
                 setShowImage(true);
             }, 200);
-        }, 4000);
+        }, 2500);
 
         return () => {
             clearInterval(intervalId);
@@ -29,9 +29,7 @@ export default function Example() {
     }, []);
 
     return (
-        <div className="">
-
-
+        <div>
             <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-t-xl h-[172px] max-w-[301px] md:h-[294px] md:max-w-[512px]">
                 <div className="rounded-lg overflow-hidden h-[156px] md:h-[278px] bg-white dark:bg-gray-800">
                     <img src="https://flowbite.s3.amazonaws.com/docs/device-mockups/laptop-screen.png" className="dark:hidden h-[156px] md:h-[278px] w-full rounded-xl" alt="" />
@@ -57,3 +55,5 @@ export default function Example() {
         </div>
     );
 };
+
+export default Carousel;

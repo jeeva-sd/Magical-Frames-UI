@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from "react-router-dom";
-import { Dialog } from '@headlessui/react';
-import { AiOutlineBars, AiOutlineClose } from 'react-icons/ai';
-import { BsFillPlayFill } from 'react-icons/bs';
-import { fetchMovies } from '../../services';
 import { useDispatch } from 'react-redux';
+import { Dialog } from '@headlessui/react';
+import { BsFillPlayFill } from 'react-icons/bs';
+import { AiOutlineBars, AiOutlineClose } from 'react-icons/ai';
 import { setRequesting } from '../../store/reducers/movieReducer';
+import { fetchMovies } from '../../services';
 
 const menuList = [
-    { name: 'Dashboard', path: '/' }
+    { name: 'Dashboard', path: '/' },
+    { name: 'Favorites', path: '/favorites' },
 ];
 
-export default function Header() {
+const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,21 +23,23 @@ export default function Header() {
     }, []);
 
     return (
-        <header style={{ backdropFilter: 'saturate(180%) blur(10px)' }} className="border fixed w-full z-10 bg-[hsla(0,0%,100%,.8)] shadow-sm shadow-[#eaeaea]">
-            <nav className="flex max-w-full lg:mx-40 items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <header
+            style={{ backdropFilter: 'saturate(180%) blur(10px)' }}
+            className="border fixed w-full z-10 bg-[hsla(0,0%,100%,.8)] shadow-sm shadow-[#eaeaea]"
+        >
+            <nav className="flex max-w-full lg:mx-40 items-center justify-between p-6 lg:px-8">
                 <div className="flex lg:flex-1 cursor-pointer" onClick={() => navigate('/')}>
                     <BsFillPlayFill className="h-10 w-10 mx-3" fontSize={40} />
-                    <div className='flex items-center text-2xl font-bold'>
-                        Magical Frames
-                    </div>
+                    <div className='flex items-center text-2xl font-bold'> Magical Frames </div>
                 </div>
+
                 <div className="flex lg:hidden">
                     <button
                         type="button"
                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
                         onClick={() => setMobileMenuOpen(true)}
                     >
-                        <AiOutlineBars className="h-6 w-6" aria-hidden="true" />
+                        <AiOutlineBars className="h-6 w-6" />
                     </button>
                 </div>
 
@@ -47,7 +50,7 @@ export default function Header() {
                             to={menu.path}
                             className={({ isActive, isPending }) =>
                                 `${isPending ? "pending" : isActive ? "text-blue-600" : ""} 
-                                text-sm font-semibold leading-6 text-gray-900`}>
+                                text-sm font-semibold leading-6  ${console.log(isActive)}`}>
                             {menu.name}
                         </NavLink>
                     ))}
@@ -89,4 +92,6 @@ export default function Header() {
             </Dialog>
         </header>
     );
-}
+};
+
+export default Header; 

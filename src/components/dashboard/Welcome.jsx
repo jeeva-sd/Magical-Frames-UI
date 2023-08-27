@@ -1,6 +1,6 @@
 import React from 'react';
-import Carousel from "../../widgets/Carousel";
 import { SiWarnerbros, SiAbbott, Si3M, SiAlliedmodders, Si4D } from 'react-icons/si';
+import Carousel from "../../widgets/Carousel";
 
 const productionHouses = [
     { icon: SiWarnerbros, name: 'Bros' },
@@ -11,7 +11,6 @@ const productionHouses = [
 ];
 
 const Welcome = () => {
-
     return (
         <div>
             <section>

@@ -1,7 +1,7 @@
 import Welcome from "./dashboard/Welcome";
 import MovieList from "./dashboard/MovieList";
 
-export default function App() {
+const App = () => {
 
   return (
     <div className="py-40 lg:px-10 md:px-10 px-2">
@@ -9,4 +9,6 @@ export default function App() {
       <MovieList />
     </div>
   );
-}
+};
+
+export default App; 
