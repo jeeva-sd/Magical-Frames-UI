@@ -103,7 +103,7 @@ const MovieList = () => {
         </div>
       </div> : null}
 
-      {!isRequesting && !movieList || movieList.length === 0 ? <div className='flex w-full justify-center text-gray-600'>No movie found.</div> : null}
+      {(!isRequesting && (!movieList || movieList.length === 0)) ? <div className='flex w-full justify-center text-gray-600'>No movie found.</div> : null}
 
       {isRequesting ? <Loader /> : null}
     </div>
