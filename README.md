@@ -1,6 +1,21 @@
-# Movie Collection Website API Documentation
+# Movie Collection Website Documentation
 
 Welcome to the API documentation for the Movie Collection Website. This API provides endpoints to manage movies in your collection.
+
+## Installation
+1. Clone the repository:
+git clone https://github.com/jeeva-sd/Magical-Frames-UI.git
+
+2. Navigate to the project directory:
+cd Magical-Frames-UI
+
+3. Install the dependencies:
+npm install
+
+4. Start the server:
+npm run dev
+
+The API will be running on `http://localhost:3000`.
 
 ## Base URL
 
