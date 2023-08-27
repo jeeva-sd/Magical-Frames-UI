@@ -63,7 +63,7 @@ export default function MovieList() {
             </div>
           )) : null}
         </div>
-        {favorites && favorites.length === 0 ? <div className='w-full flex justify-center text-gray-600'>No favorite found</div> : null}
+        {!isRequesting && favorites && favorites.length === 0 ? <div className='w-full flex justify-center text-gray-600'>No favorite found</div> : null}
       </div> : null}
 
       {!isRequesting ? <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -103,7 +103,7 @@ export default function MovieList() {
         </div>
       </div> : null}
 
-      {!movieList || movieList.length === 0 ? <div className='flex w-full justify-center text-gray-600'>No movie found.</div> : null}
+      {!isRequesting && !movieList || movieList.length === 0 ? <div className='flex w-full justify-center text-gray-600'>No movie found.</div> : null}
 
       {isRequesting ? <Loader /> : null}
     </div>

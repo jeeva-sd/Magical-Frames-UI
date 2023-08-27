@@ -22,11 +22,9 @@ const Welcome = () => {
                         </h1>
                         <p className="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl">
                             With our wide selection of movies and TV shows, you're sure to find something you'll love. We also offer a variety of features to make your streaming experience even better with high streaming quality options.
+                            Subtitles and closed captions: You can choose to have subtitles or closed captions on your movies and TV shows, regardless of the language they're in. And
+                            You can create a watchlist of movies and TV shows that you want to watch later.
                         </p>
-                        <span className="inline-flex items-center justify-center py-3 mr-3 text-base font-medium text-center">
-                            Upgrade Now
-                            <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-                        </span>
 
                     </div>
                     <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">

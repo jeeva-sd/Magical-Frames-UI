@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Dialog } from '@headlessui/react';
 import { AiOutlineBars, AiOutlineClose } from 'react-icons/ai';
 import { BsFillPlayFill } from 'react-icons/bs';
@@ -8,14 +8,12 @@ import { useDispatch } from 'react-redux';
 import { setRequesting } from '../../store/reducers/movieReducer';
 
 const menuList = [
-    { name: 'Dashboard', path: '/' },
-    { name: 'Popular', path: '/popular' },
-    { name: 'Trending', path: '/trending' },
-    { name: 'Latest', path: '/latest' }
+    { name: 'Dashboard', path: '/' }
 ];
 
 export default function Header() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -26,7 +24,7 @@ export default function Header() {
     return (
         <header style={{ backdropFilter: 'saturate(180%) blur(10px)' }} className="border fixed w-full z-10 bg-[hsla(0,0%,100%,.8)] shadow-sm shadow-[#eaeaea]">
             <nav className="flex max-w-full lg:mx-40 items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div className="flex lg:flex-1">
+                <div className="flex lg:flex-1 cursor-pointer" onClick={() => navigate('/')}>
                     <BsFillPlayFill className="h-10 w-10 mx-3" fontSize={40} />
                     <div className='flex items-center text-2xl font-bold'>
                         Magical Frames
@@ -43,7 +41,6 @@ export default function Header() {
                 </div>
 
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-10">
-
                     {menuList.map((menu, i) => (
                         <NavLink
                             key={i}
@@ -54,7 +51,6 @@ export default function Header() {
                             {menu.name}
                         </NavLink>
                     ))}
-
                 </div>
             </nav>
 
@@ -77,11 +73,14 @@ export default function Header() {
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
                                 {menuList.map((menu, i) => (
-                                    <div
+                                    <NavLink
                                         key={i}
-                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                        to={menu.path}
+                                        className={({ isActive, isPending }) =>
+                                            `${isPending ? "pending" : isActive ? "text-blue-600" : ""} 
+                                        -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50`}>
                                         {menu.name}
-                                    </div>
+                                    </NavLink>
                                 ))}
                             </div>
                         </div>

@@ -4,7 +4,7 @@ import MovieList from "./dashboard/MovieList";
 export default function App() {
 
   return (
-    <div className="py-40 px-10">
+    <div className="py-40 lg:px-10 md:px-10 px-2">
       <Welcome />
       <MovieList />
     </div>
