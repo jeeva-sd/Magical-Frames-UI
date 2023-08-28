@@ -22,7 +22,7 @@ const Welcome = () => {
                         <p className="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl">
                             With our wide selection of movies and TV shows, you're sure to find something you'll love. We also offer a variety of features to make your streaming experience even better with high streaming quality options.
                             Subtitles and closed captions: You can choose to have subtitles or closed captions on your movies and TV shows, regardless of the language they're in. And
-                            You can create a watchlist of movies and TV shows that you want to watch later.
+                            You can create a watch list of movies and TV shows that you want to watch later.
                         </p>
 
                     </div>

@@ -23,7 +23,7 @@ const Categories = () => {
                                     'ring-white ring-opacity-60 ring-offset-2 ring-offset-gray-400 focus:outline-none focus:ring-2',
                                     category === currSelected
                                         ? 'bg-white shadow'
-                                        : 'text-blue-100 hover:bg-white/[0.12]'
+                                        : 'text-black hover:bg-white/[0.12]'
                                 )
                             }
                         >
